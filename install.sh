@@ -56,8 +56,9 @@ install-treesitters() {
 		dockerfile \
 		gitcommit \
 		html \
-		meson \
+		lua \
 		markdown \
+		meson \
 		python \
 	"
 	echo "installing treesitter parsers"
