@@ -1,5 +1,5 @@
 return {
-  "nvim-neo-tree/neo-tree.nvim",
+  'nvim-neo-tree/neo-tree.nvim',
   opts = function()
     return {
       window = {

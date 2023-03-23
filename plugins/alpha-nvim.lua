@@ -1,1 +1,1 @@
-return { "goolord/alpha-nvim", enabled = false }
+return { 'goolord/alpha-nvim', enabled = false }
