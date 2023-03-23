@@ -39,11 +39,17 @@ remove-astronvim() {
 
 
 install-astronvim() {
-	local tag="v3.5.0"
-	mkdir -p "$HOME/.config"
-	git clone "https://github.com/kabinspace/AstroNvim" "$HOME/.config/nvim" -b "$tag"
-	ln -srf "." "$HOME/.config/nvim/lua/user"
-	nvim --headless -c 'AstroUpdatePackages' -c "qall"
+	local url="https://github.com/kabinspace/AstroNvim"
+	local tag="v3.5.1"
+	local configpath="$HOME/.config"
+	local nvimpath="$configpath/nvim"
+	local userpath="$nvimpath/lua/user"
+
+	mkdir -p "$configpath"
+	git clone "$url" "$nvimpath"
+	git -C "$nvimpath" reset --hard "$tag" 
+	ln -srf "." "$userpath"
+	nvim --headless -c "AstroUpdatePackages" -c "qall"
 }
 
 
