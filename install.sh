@@ -1,4 +1,33 @@
 #!/bin/bash -e
+# shellcheck disable=2068
+
+REMOVE=0
+
+help() {
+cat << EOF
+usage: $0 [-h|--help] [-r|--remove]
+
+optional arguments:
+  -h, --help            show this help message and exit.
+  -r, --remove          Remove everything before installing.
+EOF
+}
+
+
+parse-args() {
+	while [[ $# -gt 0 ]]; do
+		case $1 in
+			-r|--remove)
+				REMOVE=1
+				shift
+				;;
+			-*)
+				help
+				exit 1
+				;;
+		esac
+	done
+}
 
 
 install-nvim() {
@@ -40,15 +69,17 @@ remove-astronvim() {
 
 install-astronvim() {
 	local url="https://github.com/kabinspace/AstroNvim"
-	local tag="v3.5.1"
+	local tag="v3.5.2"
 	local configpath="$HOME/.config"
 	local nvimpath="$configpath/nvim"
 	local userpath="$nvimpath/lua/user"
 
 	mkdir -p "$configpath"
-	git clone "$url" "$nvimpath"
+	if test ! -d "$nvimpath"; then
+		git clone "$url" "$nvimpath"
+	fi
 	git -C "$nvimpath" reset --hard "$tag" 
-	ln -srf "." "$userpath"
+	ln -srf "$PWD" "$userpath"
 	nvim --headless -c "AstroUpdatePackages" -c "qall"
 }
 
@@ -92,7 +123,10 @@ install-mason-packages() {
 
 # Only run if executed, not sourced.
 if test "$0" = "${BASH_SOURCE[0]}"; then
-	remove-astronvim
+	parse-args $@
+	if test $REMOVE -eq 1; then
+		remove-astronvim
+	fi
 	install-nvim
 	install-astronvim
 	install-treesitters
