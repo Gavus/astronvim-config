@@ -1,1 +1,1 @@
-return  { capabilities = { offsetEncoding = 'utf-8' }, cmd = { "clangd", "--background-index", }, }
+return { capabilities = { offsetEncoding = "utf-8" }, cmd = { "clangd", "--background-index" } }

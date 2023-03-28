@@ -1,1 +1,1 @@
-return { init_options = { token = '' }, }
+return { init_options = { token = "" } }
