@@ -84,28 +84,8 @@ install-astronvim() {
 }
 
 
-install-treesitters() {
-	local parsers=" \
-		bash \
-		c \
-		cmake \
-		cpp \
-		dockerfile \
-		gitcommit \
-		html \
-		lua \
-		markdown \
-		meson \
-		python \
-	"
-	echo "installing treesitter parsers"
-	nvim --headless -c "TSUpdateSync ${parsers}" -c "qall"
-	echo "done"
-}
-
-
 install-mason-packages() {
-	local packages=" \
+	local packages=( \
 		bash-language-server \
 		clangd \
 		codespell \
@@ -114,9 +94,9 @@ install-mason-packages() {
 		pyright \
 		shellcheck \
 		sourcery \
-	"
+	)
 	echo "installing mason packages"
-	nvim --headless -c "MasonInstall ${packages}" -c "qall"
+	nvim --headless -c "MasonInstall ${packages[*]}" -c "qall"
 	echo "done"
 }
 
@@ -129,6 +109,5 @@ if test "$0" = "${BASH_SOURCE[0]}"; then
 	fi
 	install-nvim
 	install-astronvim
-	install-treesitters
 	install-mason-packages
 fi
