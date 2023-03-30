@@ -69,7 +69,7 @@ remove-astronvim() {
 
 install-astronvim() {
 	local url="https://github.com/kabinspace/AstroNvim"
-	local tag="v3.5.2"
+	local tag="v3.6.0"
 	local configpath="$HOME/.config"
 	local nvimpath="$configpath/nvim"
 	local userpath="$nvimpath/lua/user"
@@ -80,24 +80,7 @@ install-astronvim() {
 	fi
 	git -C "$nvimpath" reset --hard "$tag" 
 	ln -srf "$PWD" "$userpath"
-	nvim --headless -c "AstroUpdatePackages" -c "qall"
-}
-
-
-install-mason-packages() {
-	local packages=( \
-		bash-language-server \
-		clangd \
-		codespell \
-		grammarly-languageserver \
-		misspell \
-		pyright \
-		shellcheck \
-		sourcery \
-	)
-	echo "installing mason packages"
-	nvim --headless -c "MasonInstall ${packages[*]}" -c "qall"
-	echo "done"
+	nvim -c 'autocmd User LazyDone quitall'
 }
 
 
@@ -109,5 +92,4 @@ if test "$0" = "${BASH_SOURCE[0]}"; then
 	fi
 	install-nvim
 	install-astronvim
-	install-mason-packages
 fi
