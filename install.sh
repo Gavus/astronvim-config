@@ -2,14 +2,18 @@
 # shellcheck disable=2068
 
 REMOVE=0
+ASTRONVIM_VERSION="v3.6.1"
+NVIM_VERSION="v0.8.3"
 
 help() {
 cat << EOF
 usage: $0 [-h|--help] [-r|--remove]
 
 optional arguments:
-  -h, --help            show this help message and exit.
-  -r, --remove          Remove everything before installing.
+  -h, --help              Show this help message and exit.
+  -r, --remove            Remove AstroNvim before installing.
+  -v, --version  [$ASTRONVIM_VERSION] Specify AstroNvim version.
+  --nvim-version [$NVIM_VERSION] Specify Nvim version.
 EOF
 }
 
@@ -21,6 +25,14 @@ parse-args() {
 				REMOVE=1
 				shift
 				;;
+			-v|--version)
+				ASTRONVIM_VERSION="$2"
+				shift; shift
+				;;
+			--nvim-version)
+				NVIM_VERSION="$2"
+				shift; shift
+				;;
 			-*)
 				help
 				exit 1
@@ -31,7 +43,7 @@ parse-args() {
 
 
 install-nvim() {
-	local version="v0.8.3"
+	local version="$NVIM_VERSION"
 	local dirname="nvim-linux64"
 	local installpath="$HOME/.local/share/$dirname-$version"
 	local tarfile="$dirname.tar.gz"
@@ -69,7 +81,7 @@ remove-astronvim() {
 
 install-astronvim() {
 	local url="https://github.com/kabinspace/AstroNvim"
-	local tag="v3.6.0"
+	local tag="$ASTRONVIM_VERSION"
 	local configpath="$HOME/.config"
 	local nvimpath="$configpath/nvim"
 	local userpath="$nvimpath/lua/user"
@@ -79,8 +91,9 @@ install-astronvim() {
 		git clone "$url" "$nvimpath"
 	fi
 	git -C "$nvimpath" reset --hard "$tag" 
+	rm -f "$userpath"
 	ln -srf "$PWD" "$userpath"
-	nvim -c 'autocmd User LazyDone quitall'
+	nvim -c 'autocmd User LazyDone'
 }
 
 
