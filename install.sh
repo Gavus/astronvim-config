@@ -45,12 +45,13 @@ parse-args() {
 install-nvim() {
 	local version="$NVIM_VERSION"
 	local dirname="nvim-linux64"
-	local installpath="$HOME/.local/share/$dirname-$version"
+	local share="$HOME/.local/share"
+	local installpath="$share/$dirname-$version"
 	local tarfile="$dirname.tar.gz"
 	local url="https://github.com/neovim/neovim/releases/download/$version/$tarfile"
 	local binpath="$HOME/.local/bin"
 
-	mkdir -p "$binpath"
+	mkdir -p "$binpath" "$share"
 
 	if test -d "$installpath"; then
 		echo "nvim $version is already installed"
