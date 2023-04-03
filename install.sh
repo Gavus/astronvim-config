@@ -2,7 +2,7 @@
 # shellcheck disable=2068
 
 REMOVE=0
-ASTRONVIM_VERSION="v3.6.1"
+ASTRONVIM_VERSION="v3.7.2"
 NVIM_VERSION="v0.8.3"
 
 help() {
@@ -94,7 +94,7 @@ install-astronvim() {
 	git -C "$nvimpath" reset --hard "$tag" 
 	rm -f "$userpath"
 	ln -srf "$PWD" "$userpath"
-	nvim -c 'autocmd User LazyDone'
+	"$HOME/.local/bin/nvim" -c 'autocmd User LazyDone'
 }
 
 
