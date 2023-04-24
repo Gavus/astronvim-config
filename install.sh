@@ -2,8 +2,8 @@
 # shellcheck disable=2068
 
 REMOVE=0
-ASTRONVIM_VERSION="v3.8.0"
-NVIM_VERSION="v0.8.3"
+ASTRONVIM_VERSION="v3.10.3"
+NVIM_VERSION="v0.9.0"
 
 help() {
 cat << EOF
@@ -93,8 +93,7 @@ install-astronvim() {
 	fi
 	git -C "$nvimpath" reset --hard "$tag" 
 	rm -rf "$userpath"
-
-	if test "$(git rev-parse --show-toplevel)" = "astronvim-config"; then
+ 	if test "$(basename $(git rev-parse --show-toplevel 2>/dev/null))" = "astronvim-config"; then
 		ln -srf "$PWD" "$userpath"
 	else
 		git clone https://github.com/Gavus/astronvim-config.git "$userpath"
