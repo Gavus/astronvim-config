@@ -1,5 +1,5 @@
 #!/bin/bash -e
-# shellcheck disable=2068
+# shellcheck disable=2068,2046
 
 REMOVE=0
 ASTRONVIM_VERSION="v3.15.11"
@@ -90,6 +90,8 @@ install-astronvim() {
 	mkdir -p "$configpath"
 	if test ! -d "$nvimpath"; then
 		git clone "$url" "$nvimpath"
+	else
+		git -C "$nvimpath" fetch origin
 	fi
 	git -C "$nvimpath" reset --hard "$tag" 
 	rm -rf "$userpath"
