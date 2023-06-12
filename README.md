@@ -14,7 +14,7 @@ apt-get update && apt-get install \
   golang \
   python3-pip \
   -y
-pip install pynvim
+pip install pynvim tree-sitter
 npm install -g neovim
 ```
 
