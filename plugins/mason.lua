@@ -22,6 +22,8 @@ return {
         "markdownlint",
         "misspell",
         "shellcheck",
+        "beautysh",
+        "luaformatter",
       },
     },
   },
