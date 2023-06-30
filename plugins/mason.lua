@@ -23,7 +23,6 @@ return {
         "misspell",
         "shellcheck",
         "beautysh",
-        "luaformatter",
       },
     },
   },

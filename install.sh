@@ -2,7 +2,7 @@
 # shellcheck disable=2068,2046
 
 REMOVE=0
-ASTRONVIM_VERSION="v3.29.1"
+ASTRONVIM_VERSION="v3.29.5"
 NVIM_VERSION="v0.9.1"
 
 help() {
@@ -101,7 +101,7 @@ install-astronvim() {
 		git clone https://github.com/Gavus/astronvim-config.git "$userpath"
 	fi
 
-	"$HOME/.local/bin/nvim" -c 'autocmd User LazyDone'
+	"$HOME/.local/bin/nvim" --headless -c AstroUpdatePackages -c qall
 }
 
 
