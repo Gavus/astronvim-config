@@ -5,17 +5,18 @@
 ### Debian: Bullseye
 
 ``` sh
-apt-get update && apt-get install \
+sudo apt-get update && sudo apt-get install \
   curl \
-  wget \
+  fzf \
   git \
-  unzip \
-  npm \
   golang \
+  npm \
   python3-pip \
+  unzip \
+  wget \
   -y
-pip install pynvim tree-sitter
-npm install -g neovim
+sudo pip install pynvim tree-sitter
+sudo npm install -g neovim
 ```
 
 ## Install without cloning
