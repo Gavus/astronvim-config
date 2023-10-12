@@ -4,7 +4,7 @@ return {
       plugins = {
         pycodestyle = { enabled = true },
         pyflakes = { enabled = true },
-        pylint = { enabled = false },
+        pylint = { enabled = true },
       },
     },
   },

@@ -2,8 +2,8 @@
 # shellcheck disable=2068,2046
 
 REMOVE=0
-ASTRONVIM_VERSION="v3.36.11"
-NVIM_VERSION="v0.9.1"
+ASTRONVIM_VERSION="v3.37.6"
+NVIM_VERSION="v0.9.2"
 
 help() {
 cat << EOF
@@ -73,10 +73,13 @@ install-nvim() {
 
 
 remove-astronvim() {
-	rm -rf "$HOME/.cache/nvim"
-	rm -rf "$HOME/.local/share/nvim"
-	rm -rf "$HOME/.local/site/nvim"
-	rm -rf "$HOME/.config/nvim"
+	rm \
+		"$HOME/.cache/nvim" \
+		"$HOME/.local/share/nvim" \
+		"$HOME/.local/state/nvim" \
+		"$HOME/.local/site/nvim" \
+		"$HOME/.config/nvim" \
+		-rf
 }
 
 

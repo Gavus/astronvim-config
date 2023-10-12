@@ -17,6 +17,7 @@ sudo apt-get update && sudo apt-get install \
   -y
 sudo pip install pynvim tree-sitter
 sudo npm install -g neovim
+sudo npm install -g tree-sitter-cli
 ```
 
 ## Install without cloning

@@ -5,7 +5,7 @@ return {
       ensure_installed = {
         "bashls",
         "clangd",
-        "grammarly",
+        -- "grammarly",
         "lua_ls",
         "marksman",
         "pylsp",
