@@ -2,7 +2,7 @@
 # shellcheck disable=2068,2046
 
 REMOVE=0
-ASTRONVIM_VERSION="v3.37.7"
+ASTRONVIM_VERSION="v3.37.12"
 NVIM_VERSION="v0.9.4"
 
 help() {
