@@ -9,7 +9,6 @@ return {
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
         "bashls",
         "clangd",
-        -- "grammarly",
         "lua_ls",
         "marksman",
         "pylsp",
@@ -24,13 +23,15 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
+        "autopep8",
+        "beautysh",
         "codespell",
         "gitlint",
         "markdownlint",
         "misspell",
         "shellcheck",
-        "beautysh",
-        "autopep8",
+        "shellcheck",
+        "shellharden",
       })
     end,
   },
