@@ -84,7 +84,8 @@ remove-astronvim() {
 
 
 install-astronvim() {
-    local url="https://github.com/kabinspace/AstroNvim"
+    local astrourl="https://github.com/astronvim/AstroNvim.git"
+    local confurl="https://github.com/Gavus/astronvim-config.git"
     local tag="$ASTRONVIM_VERSION"
     local configpath="$HOME/.config"
     local nvimpath="$configpath/nvim"
@@ -92,16 +93,16 @@ install-astronvim() {
 
     mkdir -p "$configpath"
     if test ! -d "$nvimpath"; then
-        git clone "$url" "$nvimpath"
+        git clone "$astrourl" "$nvimpath"
     else
         git -C "$nvimpath" fetch origin
     fi
     git -C "$nvimpath" reset --hard "$tag"
     rm -rf "$userpath"
-    if test "$(basename $(git rev-parse --show-toplevel 2>/dev/null))" = "astronvim-config"; then
+    if test "$(git home)" = "astronvim-config"; then
         ln -srf "$PWD" "$userpath"
     else
-        git clone https://github.com/Gavus/astronvim-config.git "$userpath"
+        git clone "$confurl" "$userpath"
     fi
 
     "$HOME/.local/bin/nvim" --headless -c AstroUpdatePackages -c qall
