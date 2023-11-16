@@ -7,8 +7,9 @@ return {
     opts = {
       colorcolumn = "80",
       custom_colorcolumn = {
-        python = "100",
+        python = "130",
       },
+      disabled_filetypes = { "help" },
     },
   },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
