@@ -2,7 +2,7 @@
 # shellcheck disable=2068,2046
 
 REMOVE=0
-ASTRONVIM_VERSION="v3.38.0"
+ASTRONVIM_VERSION="v3.38.2"
 NVIM_VERSION="v0.9.4"
 
 help() {
@@ -12,7 +12,7 @@ usage: $0 [-h|--help] [-r|--remove]
 optional arguments:
   -h, --help              Show this help message and exit.
   -r, --remove            Remove AstroNvim before installing.
-  -v, --version  [$ASTRONVIM_VERSION] Specify AstroNvim version.
+  -v, --version [$ASTRONVIM_VERSION] Specify AstroNvim version.
   --nvim-version [$NVIM_VERSION] Specify Nvim version.
 EOF
 }
@@ -33,7 +33,7 @@ parse-args() {
                 NVIM_VERSION="$2"
                 shift; shift
                 ;;
-            -*)
+            *)
                 help
                 exit 1
                 ;;

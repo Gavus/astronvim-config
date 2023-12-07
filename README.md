@@ -2,20 +2,23 @@
 
 ## Dependencies
 
-### Debian: Bullseye
+### Debian: Bookworm
 
 ``` sh
 sudo apt-get update && sudo apt-get install \
+  cargo \
   curl \
   fzf \
   git \
   golang \
   npm \
   python3-pip \
+  python3-pynvim \
+  python3-venv \
   unzip \
   wget \
   -y
-sudo pip install pynvim tree-sitter
+sudo pip3 install tree-sitter
 sudo npm install -g neovim
 sudo npm install -g tree-sitter-cli
 ```
