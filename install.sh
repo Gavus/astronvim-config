@@ -90,6 +90,7 @@ install-astronvim() {
     local configpath="$HOME/.config"
     local nvimpath="$configpath/nvim"
     local userpath="$nvimpath/lua/user"
+    local githome="$(git rev-parse --show-toplevel)"
 
     mkdir -p "$configpath"
     if test ! -d "$nvimpath"; then
@@ -99,7 +100,7 @@ install-astronvim() {
     fi
     git -C "$nvimpath" reset --hard "$tag"
     rm -rf "$userpath"
-    if test "$(git home)" = "astronvim-config"; then
+    if test "$githome" = "astronvim-config"; then
         ln -srf "$PWD" "$userpath"
     else
         git clone "$confurl" "$userpath"
