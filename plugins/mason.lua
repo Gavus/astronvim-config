@@ -13,6 +13,7 @@ return {
         "marksman",
         "pylsp",
         "sourcery",
+        "lemminx",
       })
     end,
   },
