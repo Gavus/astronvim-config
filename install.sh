@@ -54,25 +54,29 @@ install-nvim() {
     mkdir -p "$binpath" "$share"
 
     if test -d "$installpath"; then
-        echo "nvim $version is already installed"
+        echo "Nvim $version is already installed"
         ln -srf "$installpath/bin/"* "$binpath"
         return
     fi
 
     if test ! -d "$dirname"; then
         if [ ! -f "$tarfile" ]; then
+            echo "Downloading nvim"
             wget "$url"
         fi
+        echo "Extracting nvim"
         tar -xzvf "$tarfile"
         rm "$tarfile"
     fi
 
     mv "$dirname" "$installpath"
     ln -srf "$installpath/bin/"* "$binpath"
+    echo "Nvim Installed"
 }
 
 
 remove-astronvim() {
+    echo "Removing old nvim configuration"
     rm \
         "$HOME/.cache/nvim" \
         "$HOME/.local/share/nvim" \
@@ -90,14 +94,19 @@ install-astronvim() {
     local configpath="$HOME/.config"
     local nvimpath="$configpath/nvim"
     local userpath="$nvimpath/lua/user"
-    local githome="$(git rev-parse --show-toplevel)"
+    local githome
+
+    githome=$(basename "$(git rev-parse --show-toplevel)")
 
     mkdir -p "$configpath"
     if test ! -d "$nvimpath"; then
+        echo "Cloning astronvim"
         git clone "$astrourl" "$nvimpath"
     else
+        echo "Astronvim already downloaded"
         git -C "$nvimpath" fetch origin
     fi
+    echo "Fetching astronvim version: $tag"
     git -C "$nvimpath" reset --hard "$tag"
     rm -rf "$userpath"
     if test "$githome" = "astronvim-config"; then
@@ -107,6 +116,7 @@ install-astronvim() {
     fi
 
     "$HOME/.local/bin/nvim" --headless -c AstroUpdatePackages -c qall
+    echo "Astronvim installed"
 }
 
 
