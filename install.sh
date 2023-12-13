@@ -96,7 +96,7 @@ install-astronvim() {
     local userpath="$nvimpath/lua/user"
     local githome
 
-    githome=$(basename "$(git rev-parse --show-toplevel)")
+    githome=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)")
 
     mkdir -p "$configpath"
     if test ! -d "$nvimpath"; then
