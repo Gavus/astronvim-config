@@ -1,9 +1,31 @@
 #!/bin/bash -e
 # shellcheck disable=2068,2046
 
-REMOVE=0
-ASTRONVIM_VERSION="v3.39.0"
-NVIM_VERSION="v0.9.4"
+
+main() {
+    # Only run if executed, not sourced.
+    if [[ "$0" == "${BASH_SOURCE[0]}" ]]; then
+        echo "Do not source this script."
+        exit 1
+    fi
+
+    init
+
+    parse-args "$@"
+
+    if (( REMOVE == 1 )); then
+        remove-astronvim
+    fi
+
+    install-nvim
+    install-astronvim
+}
+
+init() {
+    REMOVE=0
+    ASTRONVIM_VERSION="v3.39.0"
+    NVIM_VERSION="v0.9.4"
+}
 
 help() {
     cat << EOF
@@ -119,13 +141,6 @@ install-astronvim() {
     echo "Astronvim installed"
 }
 
-
-# Only run if executed, not sourced.
-if [[ "$0" == "${BASH_SOURCE[0]}" ]]; then
-    parse-args $@
-    if (( REMOVE == 1 )); then
-        remove-astronvim
-    fi
-    install-nvim
-    install-astronvim
-fi
+### Call main ###
+main "$@"
+#################
