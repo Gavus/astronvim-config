@@ -19,7 +19,7 @@ EOF
 
 
 parse-args() {
-    while [[ $# -gt 0 ]]; do
+    while (( $# > 0 )); do
         case $1 in
             -r|--remove)
                 REMOVE=1
@@ -53,14 +53,14 @@ install-nvim() {
 
     mkdir -p "$binpath" "$share"
 
-    if test -d "$installpath"; then
+    if [[ -d "$installpath" ]]; then
         echo "Nvim $version is already installed"
         ln -srf "$installpath/bin/"* "$binpath"
         return
     fi
 
-    if test ! -d "$dirname"; then
-        if [ ! -f "$tarfile" ]; then
+    if [[ ! -d "$dirname" ]]; then
+        if [[ ! -f "$tarfile" ]]; then
             echo "Downloading nvim"
             wget "$url"
         fi
@@ -99,7 +99,7 @@ install-astronvim() {
     githome=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)")
 
     mkdir -p "$configpath"
-    if test ! -d "$nvimpath"; then
+    if [[ ! -d "$nvimpath" ]]; then
         echo "Cloning astronvim"
         git clone "$astrourl" "$nvimpath"
     else
@@ -109,7 +109,7 @@ install-astronvim() {
     echo "Fetching astronvim version: $tag"
     git -C "$nvimpath" reset --hard "$tag"
     rm -rf "$userpath"
-    if test "$githome" = "astronvim-config"; then
+    if [[ "$githome" == "astronvim-config" ]]; then
         ln -srf "$PWD" "$userpath"
     else
         git clone "$confurl" "$userpath"
@@ -121,9 +121,9 @@ install-astronvim() {
 
 
 # Only run if executed, not sourced.
-if test "$0" = "${BASH_SOURCE[0]}"; then
+if [[ "$0" == "${BASH_SOURCE[0]}" ]]; then
     parse-args $@
-    if test $REMOVE -eq 1; then
+    if (( REMOVE == 1 )); then
         remove-astronvim
     fi
     install-nvim
