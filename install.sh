@@ -3,12 +3,6 @@
 
 
 main() {
-    # Only run if executed, not sourced.
-    if [[ "$0" == "${BASH_SOURCE[0]}" ]]; then
-        echo "Do not source this script."
-        exit 1
-    fi
-
     init
 
     parse-args "$@"
@@ -33,7 +27,7 @@ usage: $0 [-h|--help] [-r|--remove]
 
 optional arguments:
   -h, --help              Show this help message and exit.
-  -r, --remove            Remove AstroNvim before installing.
+  -r, --remove            Remove old nvim config and cached files.
   -v, --version [$ASTRONVIM_VERSION] Specify AstroNvim version.
   --nvim-version [$NVIM_VERSION] Specify Nvim version.
 EOF
