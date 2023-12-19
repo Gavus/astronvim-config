@@ -23,7 +23,7 @@ main() {
 
 init() {
     REMOVE=0
-    ASTRONVIM_VERSION="v3.39.0"
+    ASTRONVIM_VERSION="v3.40.3"
     NVIM_VERSION="v0.9.4"
 }
 
