@@ -12,6 +12,13 @@ lots more for a smooth experience.
 Astronvim requires a crazy amount of other applications, which depends on the
 config being used. Here are the dependencies for this config.
 
+### Holoiso (I use archlinux btw)
+
+``` sh
+sudo pacman -Sy tree-sitter npm cargo python-pip python-pynvim fzf the_silver_searcher
+sudo npm install -g neovim
+```
+
 ### Debian: Bookworm
 
 ``` sh
