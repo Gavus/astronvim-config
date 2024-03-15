@@ -7,7 +7,7 @@ return {
     opts = {
       colorcolumn = "80",
       custom_colorcolumn = {
-        python = "130",
+        python = "132",
       },
       disabled_filetypes = { "help" },
     },
