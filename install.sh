@@ -17,8 +17,8 @@ main() {
 
 init() {
     REMOVE=0
-    ASTRONVIM_VERSION="v3.43.3"
-    NVIM_VERSION="v0.9.4"
+    ASTRONVIM_VERSION="v3.45.3"
+    NVIM_VERSION="v0.9.5"
 }
 
 help() {
@@ -61,7 +61,7 @@ parse-args() {
 install-nvim() {
     local version="$NVIM_VERSION"
     local dirname="nvim-linux64"
-    local share="$HOME/.local/share"
+    local share="$HOME/.local"
     local installpath="$share/$dirname-$version"
     local tarfile="$dirname.tar.gz"
     local url="https://github.com/neovim/neovim/releases/download/$version/$tarfile"
