@@ -41,7 +41,7 @@ return {
     mappings = {
       n = {
         -- TODO: Add this only for clangd.
-        lH = { "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header" },
+        ["<Leader>lH"] = { "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header" },
       },
     },
   },
