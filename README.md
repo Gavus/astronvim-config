@@ -1,6 +1,6 @@
 # Astronvim-config
 
-My personal astronvim config. [AstroNvim](https://astronvim.com/) is an
+My personal astronvim v4 config. [AstroNvim](https://astronvim.com/) is an
 aesthetic and feature-rich Neovim configuration that focuses on extensibility
 and usability.
 
@@ -14,9 +14,9 @@ config being used. Here are the dependencies for this config.
 
 ### Debian: Bookworm
 
-You'll need to install latest nodejs lts manually before proceding.
+You'll need to install latest nodejs LTS manually before proceeding.
 
-``` sh
+```sh
 ./install-debian-dependencies.sh
 ```
 
@@ -29,7 +29,7 @@ First install all the dependencies or face the consequences.
 Simply run this command in the terminal to install. Beware that this removes all
 old nvim config and cached files that you might have.
 
-``` sh
+```sh
 curl -s https://raw.githubusercontent.com/Gavus/astronvim-config/main/install.sh | bash /dev/stdin -r
 ```
 

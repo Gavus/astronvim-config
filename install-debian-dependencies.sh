@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 apt_pkgs=( \
         cargo \
@@ -35,5 +35,9 @@ echo "Running pip install"
 pip3 install -q "${pip_pkgs[@]}"
 
 echo "Running npm install"
+if ! command -v npm > /dev/null; then
+    >&2 echo "nodejs LTS must be installed manually!"
+    exit 1
+fi
 # apt installs a too old version of node. Install it manually.
 sudo env PATH="$PATH" npm install -g "${npm_pkgs[@]}"
