@@ -9,7 +9,6 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        background = "light", -- set colorscheme background.
         linebreak = true, -- break at space.
         list = true, -- show certain characters.
         listchars = "tab:▷▷", -- show tabs.
