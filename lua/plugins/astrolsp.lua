@@ -36,6 +36,17 @@ return {
       sourcery = {
         init_options = { token = "" },
       },
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = { enabled = true },
+              pyflakes = { enabled = true },
+              pylint = { enabled = true },
+            },
+          },
+        },
+      },
     },
     -- mappings to be set up on attaching of a language server
     mappings = {
