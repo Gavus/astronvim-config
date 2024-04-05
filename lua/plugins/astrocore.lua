@@ -12,7 +12,6 @@ return {
         linebreak = true, -- break at space.
         list = true, -- show certain characters.
         listchars = "tab:▷▷", -- show tabs.
-        spell = true, -- sets vim.opt.spell
       },
     },
     -- Mappings can be configured through AstroCore as well.
