@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-VERSION="v3.0.2"
+VERSION="v3.3.0"
 DIR="fonts"
 ZIP="SourceCodePro.zip"
 FONT="SauceCodeProNerdFontMono-Regular.ttf"
