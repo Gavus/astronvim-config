@@ -3,7 +3,7 @@
 VERSION="v3.0.2"
 DIR="fonts"
 ZIP="SourceCodePro.zip"
-FONT="Sauce Code Pro Nerd Font Complete Mono.ttf"
+FONT="SauceCodeProNerdFontMono-Regular.ttf"
 
 mkdir -p "$DIR"
 cd "$DIR"
