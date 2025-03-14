@@ -11,14 +11,34 @@ apt_pkgs=( \
         python3-pynvim \
         python3-venv \
         silversearcher-ag \
-        tree-sitter-cli \
         unzip \
         wget \
     )
 
 npm_pkgs=( \
         neovim \
+        tree-sitter \
     )
+
+install_nodejs() {
+    version=v22.11.0
+    dirname=node-$version-linux-x64
+    installpath=$HOME/.local/share/$dirname
+    tarfile=$dirname.tar.xz
+    url=https://nodejs.org/dist/$version/$tarfile
+    binpath=$HOME/.local/bin
+
+    mkdir -p "$binpath"
+
+    if [ ! -f ./"$tarfile" ] && [ ! -d ./"$dirname" ]; then
+        wget "$url"
+        tar -xvf "$tarfile"
+        rm "$tarfile"
+    fi
+
+    mv "$dirname" "$installpath"
+    ln -srf "$installpath/bin/"* "$binpath"
+}
 
 echo "Running apt-get update quietly"
 sudo apt-get -qq update
@@ -26,10 +46,10 @@ sudo apt-get -qq update
 echo "Running apt-get install quietly"
 sudo apt-get -qq install -y "${apt_pkgs[@]}"
 
-echo "Running npm install"
 if ! command -v npm > /dev/null; then
-    >&2 echo "nodejs LTS must be installed manually!"
-    exit 1
+    echo "nodejs not found, installing."
+    install_nodejs
 fi
-# apt installs a too old version of node. Install it manually.
-sudo env PATH="$PATH" npm install -g "${npm_pkgs[@]}"
+
+echo "Running npm install quietly"
+sudo env PATH="$PATH" npm install -g "${npm_pkgs[@]}" > /dev/null
