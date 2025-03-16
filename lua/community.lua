@@ -17,7 +17,7 @@ return {
       disabled_filetypes = { "help" },
     },
   },
-  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
 }
