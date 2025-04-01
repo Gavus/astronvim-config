@@ -1,54 +1,45 @@
--- Customize Mason plugins
+-- Customize Mason
 
 ---@type LazySpec
 return {
-  -- use mason-lspconfig to configure LSP installations
+  -- use mason-tool-installer for automatically installing Mason packages
   {
-    "williamboman/mason-lspconfig.nvim",
-    -- overrides `require("mason-lspconfig").setup(...)`
-    opts = function(_, opts)
-      -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "bashls",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    -- overrides `require("mason-tool-installer").setup(...)`
+    opts = {
+      -- Make sure to use the names found in `:Mason`
+      ensure_installed = {
+        -- install language servers
+        "bash-language-server",
         "clangd",
         "lemminx",
-        "lua_ls",
+        "lua-language-server",
         "marksman",
-        "pylsp",
+        "python-lsp-server",
         "sourcery",
-      })
-    end,
-  },
-  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-  {
-    "jay-babu/mason-null-ls.nvim",
-    -- overrides `require("mason-null-ls").setup(...)`
-    opts = function(_, opts)
-      -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "autopep8",
-        "beautysh",
+
+        -- install linters.
         "codespell",
         "gitlint",
         "markdownlint",
         "misspell",
-        "prettier",
-        "shellcheck",
+        "selene",
         "shellcheck",
         "shellharden",
+
+        -- install formatters.
+        "autopep8",
+        "beautysh",
+        "prettier",
         "stylua",
-      })
-    end,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    -- overrides `require("mason-nvim-dap").setup(...)`
-    opts = function(_, opts)
-      -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "python",
+
+        -- install debuggers.
         "cpptools",
-      })
-    end,
+        "debugpy",
+
+        -- install any other package.
+        "tree-sitter-cli",
+      },
+    },
   },
 }

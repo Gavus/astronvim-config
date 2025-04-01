@@ -1,6 +1,6 @@
 # Astronvim-config
 
-My personal astronvim v4 config. [AstroNvim](https://astronvim.com/) is an
+My personal astronvim v5 config. [AstroNvim](https://astronvim.com/) is an
 aesthetic and feature-rich Neovim configuration that focuses on extensibility
 and usability.
 
