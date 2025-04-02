@@ -17,8 +17,22 @@ apt_pkgs=( \
 
 npm_pkgs=( \
         neovim \
-        tree-sitter \
     )
+
+install_tree_sitter() {
+    local version="0.25.3"
+    local name="tree-sitter"
+    local tgz="${name}-linux-x64.gz"
+    local url="https://github.com/tree-sitter/tree-sitter/releases/download/v${version}/${tgz}"
+    local installpath="$HOME/.local/bin"
+    mkdir -p "$installpath"
+
+    if [[ ! -f "$installpath/$name" ]]; then
+        wget -O - "$url" | gunzip -dc > "$installpath/$name"
+        chmod +x "$installpath/$name"
+        echo "installed $name"
+    fi
+}
 
 install_nodejs() {
     version=v22.11.0
@@ -53,3 +67,5 @@ fi
 
 echo "Running npm install quietly"
 sudo env PATH="$PATH" npm install -g "${npm_pkgs[@]}" > /dev/null
+
+install_tree_sitter
