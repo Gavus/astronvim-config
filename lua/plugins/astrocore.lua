@@ -27,7 +27,7 @@ return {
       opt = { -- vim.opt.<key>
         linebreak = true, -- break at space.
         list = true, -- show certain characters.
-        listchars = "tab:▷▷", -- show tabs.
+        listchars = "tab:▷ ,trail:·,extends:◣,precedes:◢,nbsp:○",
         spell = true, -- sets vim.opt.spell.
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes.
       },
