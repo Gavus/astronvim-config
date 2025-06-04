@@ -37,12 +37,12 @@ install_tree_sitter() {
 }
 
 install_nodejs() {
-    version=v22.11.0
-    dirname=node-$version-linux-x64
-    installpath=$HOME/.local/share/$dirname
-    tarfile=$dirname.tar.xz
-    url=https://nodejs.org/dist/$version/$tarfile
-    binpath=$HOME/.local/bin
+    local version="v22.16.0"
+    local dirname="node-$version-linux-x64"
+    local installpath="$HOME/.local/$dirname"
+    local tarfile="$dirname.tar.xz"
+    local url="https://nodejs.org/dist/$version/$tarfile"
+    local binpath="$HOME/.local/bin"
 
     mkdir -p "$binpath"
 
