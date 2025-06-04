@@ -3,6 +3,7 @@
 apt_pkgs=( \
         cargo \
         curl \
+        fuse \
         fzf \
         gdu \
         git \
