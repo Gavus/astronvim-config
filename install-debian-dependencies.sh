@@ -8,6 +8,7 @@ apt_pkgs=( \
         gdu \
         git \
         golang \
+        luarocks \
         python3-pip \
         python3-pynvim \
         python3-venv \
