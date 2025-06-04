@@ -15,11 +15,13 @@ return {
         "lemminx",
         "lua-language-server",
         "marksman",
+        "pyright",
         "python-lsp-server",
         "sourcery",
 
         -- install linters.
         "codespell",
+        "flake8",
         "gitlint",
         "markdownlint",
         "misspell",
