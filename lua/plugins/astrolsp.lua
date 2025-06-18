@@ -23,7 +23,6 @@ return {
         allow_filetypes = { -- enable format on save for specified filetypes only
           "go",
           "lua",
-          "sh",
         },
       },
     },
