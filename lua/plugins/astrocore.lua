@@ -30,6 +30,7 @@ return {
         listchars = "tab:▷ ,trail:·,extends:◣,precedes:◢,nbsp:○",
         spell = true, -- sets vim.opt.spell.
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes.
+        background = "light", -- set colorscheme background to light.
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

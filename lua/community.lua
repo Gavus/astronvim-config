@@ -20,4 +20,5 @@ return {
   },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  { import = "astrocommunity.colorscheme.gruvbox-nvim" },
 }
