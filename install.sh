@@ -17,7 +17,7 @@ main() {
 
 init() {
     REMOVE=0
-    NVIM_VERSION="v0.11.2"
+    NVIM_VERSION="v0.11.3"
 }
 
 help() {
