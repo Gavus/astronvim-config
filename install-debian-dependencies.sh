@@ -37,7 +37,7 @@ install_tree_sitter() {
 }
 
 install_nodejs() {
-    local version="v22.16.0"
+    local version="v24.8.0"
     local dirname="node-$version-linux-x64"
     local installpath="$HOME/.local/$dirname"
     local tarfile="$dirname.tar.xz"
