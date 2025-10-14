@@ -15,9 +15,7 @@ return {
         "lemminx",
         "lua-language-server",
         "marksman",
-        "pyright",
         "python-lsp-server",
-        "sourcery",
 
         -- install linters.
         "codespell",
