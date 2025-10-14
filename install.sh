@@ -102,7 +102,7 @@ install_astronvim() {
     local confurl="https://github.com/Gavus/astronvim-config.git"
     local configpath="$HOME/.config"
     local nvimpath="$configpath/nvim"
-    local githome
+    local gitremote=""
 
     mkdir -p "$configpath"
 
@@ -110,9 +110,9 @@ install_astronvim() {
         rm -rf "$nvimpath";
     fi
 
-    githome=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)")
-    if [[ "$githome" == "astronvim-config" ]]; then
-        ln -srf "$PWD" "$nvimpath"
+    gitremote=$(git remote -v)
+    if [[ "$gitremote" == *"astronvim-config"* ]]; then
+        ln -sf "$PWD" "$nvimpath"
     else
         git clone "$confurl" "$nvimpath"
     fi
