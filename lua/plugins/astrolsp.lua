@@ -36,14 +36,10 @@ return {
       sourcery = {
         init_options = { token = "" },
       },
-      pylsp = {
+      basedpyright = {
         settings = {
-          pylsp = {
-            plugins = {
-              pycodestyle = { enabled = true },
-              pyflakes = { enabled = true },
-              pylint = { enabled = true },
-            },
+          basedpyright = {
+            typeCheckingMode = "standard",
           },
         },
       },
