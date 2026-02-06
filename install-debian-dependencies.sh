@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
 apt_pkgs=( \
-        cargo \
         curl \
         fuse \
         fzf \
@@ -56,18 +55,26 @@ install_nodejs() {
     ln -srf "$installpath/bin/"* "$binpath"
 }
 
-echo "Running apt-get update quietly"
-sudo apt-get -qq update
+install_cargo() {
+    yes "" | curl https://sh.rustup.rs -sSf | sh
+}
 
-echo "Running apt-get install quietly"
-sudo apt-get -qq install -y "${apt_pkgs[@]}"
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo "Running apt-get update quietly"
+    sudo apt-get -qq update
 
-if ! command -v npm > /dev/null; then
-    echo "nodejs not found, installing."
-    install_nodejs
+    echo "Running apt-get install quietly"
+    sudo apt-get -qq install -y "${apt_pkgs[@]}"
+
+    if ! command -v npm > /dev/null; then
+        echo "nodejs not found, installing."
+        install_nodejs
+    fi
+
+    echo "Running npm install quietly"
+    sudo env PATH="$PATH" npm install -g "${npm_pkgs[@]}" > /dev/null
+
+    install_tree_sitter
+
+    install_cargo
 fi
-
-echo "Running npm install quietly"
-sudo env PATH="$PATH" npm install -g "${npm_pkgs[@]}" > /dev/null
-
-install_tree_sitter
