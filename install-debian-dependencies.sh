@@ -56,7 +56,8 @@ install_nodejs() {
 }
 
 install_cargo() {
-    yes "" | curl https://sh.rustup.rs -sSf | sh
+    curl https://sh.rustup.rs -sSf | sh
+    rustup component add rust-analyzer
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

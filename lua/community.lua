@@ -29,5 +29,6 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.syntax.vim-easy-align" },
 }
