@@ -30,5 +30,6 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.syntax.vim-easy-align" },
 }
