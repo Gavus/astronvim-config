@@ -32,6 +32,12 @@ return {
       clangd = {
         capabilities = { offsetEncoding = "utf-8" },
         cmd = { "clangd", "--background-index" },
+        on_attach = function(_, bufnr)
+          vim.keymap.set("n", "<Leader>lH", "<cmd>ClangdSwitchSourceHeader<cr>", {
+            buffer = bufnr,
+            desc = "Switch Source/Header",
+          })
+        end,
       },
       sourcery = {
         init_options = { token = "" },
@@ -56,10 +62,7 @@ return {
     },
     -- mappings to be set up on attaching of a language server
     mappings = {
-      n = {
-        -- TODO: Add this only for clangd.
-        ["<Leader>lH"] = { "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header" },
-      },
+      n = {},
     },
   },
 }
