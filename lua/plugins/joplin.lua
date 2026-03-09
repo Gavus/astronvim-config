@@ -7,7 +7,9 @@ return {
   },
   config = function()
     require("joplin").setup {
-      -- Your configuration options here
+      startup = {
+        show_warnings = false, -- Disable warning messages
+      },
     }
   end,
 }
