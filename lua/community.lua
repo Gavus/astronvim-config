@@ -5,7 +5,6 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
   {
     "m4xshen/smartcolumn.nvim",
     opts = {
