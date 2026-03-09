@@ -14,8 +14,6 @@ config being used. Here are the dependencies for this config.
 
 ### Debian: Bookworm
 
-You'll need to install latest nodejs LTS manually before proceeding.
-
 ```sh
 ./install-debian-dependencies.sh
 ```
