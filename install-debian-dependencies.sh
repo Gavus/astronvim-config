@@ -11,6 +11,7 @@ apt_pkgs=( \
         python3-pip \
         python3-pynvim \
         python3-venv \
+        ripgrep \
         silversearcher-ag \
         unzip \
         wget \
