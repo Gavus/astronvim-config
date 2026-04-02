@@ -22,7 +22,7 @@ npm_pkgs=( \
     )
 
 install_tree_sitter() {
-    local version="0.25.3"
+    local version="0.26.8"
     local name="tree-sitter"
     local tgz="${name}-linux-x64.gz"
     local url="https://github.com/tree-sitter/tree-sitter/releases/download/v${version}/${tgz}"
@@ -37,7 +37,7 @@ install_tree_sitter() {
 }
 
 install_nodejs() {
-    local version="v24.8.0"
+    local version="v25.9.0"
     local dirname="node-$version-linux-x64"
     local installpath="$HOME/.local/$dirname"
     local tarfile="$dirname.tar.xz"
