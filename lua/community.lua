@@ -18,7 +18,7 @@ return {
   },
   { import = "astrocommunity.colorscheme.gruvbox-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.editing-support.copilotchat-nvim" },
+  { import = "astrocommunity.ai.copilotchat-nvim" },
   { import = "astrocommunity.editing-support.quick-scope" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
