@@ -23,17 +23,10 @@ npm_pkgs=( \
 
 install_tree_sitter() {
     local version="0.26.8"
-    local name="tree-sitter"
-    local tgz="${name}-linux-x64.gz"
-    local url="https://github.com/tree-sitter/tree-sitter/releases/download/v${version}/${tgz}"
-    local installpath="$HOME/.local/bin"
-    mkdir -p "$installpath"
-
-    if [[ ! -f "$installpath/$name" ]]; then
-        wget -O - "$url" | gunzip -dc > "$installpath/$name"
-        chmod +x "$installpath/$name"
-        echo "installed $name"
+    if [ "$(tree-sitter --version)" = "tree-sitter $version" ]; then
+        return
     fi
+    cargo install tree-sitter-cli --version "$version"
 }
 
 install_nodejs() {
@@ -57,6 +50,9 @@ install_nodejs() {
 }
 
 install_cargo() {
+    if command -v cargo >/dev/null; then
+        return
+    fi
     curl https://sh.rustup.rs -sSf | sh
     rustup component add rust-analyzer
 }
@@ -76,7 +72,6 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     echo "Running npm install quietly"
     sudo env PATH="$PATH" npm install -g "${npm_pkgs[@]}" > /dev/null
 
-    install_tree_sitter
-
     install_cargo
+    install_tree_sitter
 fi
