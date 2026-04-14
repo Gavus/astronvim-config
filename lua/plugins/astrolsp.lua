@@ -10,7 +10,7 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = false, -- enable or disable auto formatting on start
+      autoformat = false, -- disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
       inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
@@ -38,9 +38,6 @@ return {
             desc = "Switch Source/Header",
           })
         end,
-      },
-      sourcery = {
-        init_options = { token = "" },
       },
       basedpyright = {
         settings = {

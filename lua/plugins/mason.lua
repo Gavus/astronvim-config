@@ -35,9 +35,6 @@ return {
         -- install debuggers.
         "cpptools",
         "debugpy",
-
-        -- install any other package.
-        "tree-sitter-cli",
       },
     },
   },

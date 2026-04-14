@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "happyeric77/joplin.nvim",
+  cmd = { "joplin" },
   dependencies = {
     "nvim-telescope/telescope.nvim",
     "nvim-lua/plenary.nvim",
