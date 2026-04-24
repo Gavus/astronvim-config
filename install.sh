@@ -17,7 +17,7 @@ main() {
 
 init() {
     REMOVE=0
-    NVIM_VERSION="v0.12.0"
+    NVIM_VERSION="v0.12.2"
 }
 
 help() {
@@ -59,7 +59,6 @@ install_nvim() {
     local installpath="$share/$dirname-$version"
     local tarfile="$dirname.tar.gz"
     local url="https://github.com/neovim/neovim/releases/download/$version/$tarfile"
-    #local url="https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.tar.gz
     local binpath="$HOME/.local/bin"
 
     mkdir -p "$binpath" "$share"
