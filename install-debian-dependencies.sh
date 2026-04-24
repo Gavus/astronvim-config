@@ -21,6 +21,9 @@ npm_pkgs=( \
         neovim \
     )
 
+binpath="$HOME/.local/bin"
+mkdir -p "$binpath"
+
 install_tree_sitter() {
     local version="0.26.8"
     if [ "$(tree-sitter --version)" = "tree-sitter $version" ]; then
@@ -29,15 +32,28 @@ install_tree_sitter() {
     cargo install tree-sitter-cli --version "$version"
 }
 
+install_lazygit() {
+    local version="0.61.1"
+    local name="lazygit"
+    local installpath="$HOME/.local/$dirname"
+    local tarfile="${name}_${version}_linux_x86_64.tar.gz"
+    local url="https://github.com/jesseduffield/$name/releases/download/v$version/$tarfile"
+
+    if [[ ! -f ./"$tarfile" ]]; then
+        wget "$url"
+        tar -xzvf "$tarfile" "$name"
+        rm "$tarfile"
+    fi
+
+    mv ./"$name" "$binpath/$name"
+}
+
 install_nodejs() {
     local version="v25.9.0"
     local dirname="node-$version-linux-x64"
     local installpath="$HOME/.local/$dirname"
     local tarfile="$dirname.tar.xz"
     local url="https://nodejs.org/dist/$version/$tarfile"
-    local binpath="$HOME/.local/bin"
-
-    mkdir -p "$binpath"
 
     if [ ! -f ./"$tarfile" ] && [ ! -d ./"$dirname" ]; then
         wget "$url"
@@ -74,4 +90,5 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 
     install_cargo
     install_tree_sitter
+    install_lazygit
 fi
