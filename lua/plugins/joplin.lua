@@ -7,6 +7,7 @@ return {
   },
   config = function()
     require("joplin").setup {
+      token_env = "JOPLIN_TOKEN",
       startup = {
         show_warnings = false, -- Disable warning messages
       },
